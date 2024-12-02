@@ -10,5 +10,9 @@
     "eslint-plugin-prettier": "^5.2.1",
     "typescript": "^5.7.2",
     "typescript-eslint": "^8.16.0"
+  },
+  "scripts": {
+    "aoc": "./aoc.sh $1 $2",
+    "new": "./new.sh $1"
   }
 }
