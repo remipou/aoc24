@@ -26,7 +26,6 @@ const makeString = (start: Pos, reverse: boolean = false): string | null => {
   const pos: Pos = { ...start };
   if (reverse) {
     while (pos.y < data[0].length - 1 && pos.x > 0) {
-      console.log(pos);
       pos.x = pos.x - 1;
       pos.y = pos.y + 1;
       str += data[pos.y][pos.x];
@@ -76,5 +75,23 @@ console.timeEnd('part 1');
 console.log('part1', count);
 
 console.time('part 2');
+let countPart2 = 0;
+for (let i = 1; i < data.length - 1; i++) {
+  for (let j = 1; j < data[0].length - 1; j++) {
+    if (data[i][j] === 'A') {
+      if (
+        (data[i - 1][j - 1] === 'M' && data[i + 1][j + 1] === 'S') ||
+        (data[i - 1][j - 1] === 'S' && data[i + 1][j + 1] === 'M')
+      ) {
+        if (
+          (data[i - 1][j + 1] === 'M' && data[i + 1][j - 1] === 'S') ||
+          (data[i - 1][j + 1] === 'S' && data[i + 1][j - 1] === 'M')
+        ) {
+          countPart2 = countPart2 + 1;
+        }
+      }
+    }
+  }
+}
 console.timeEnd('part 2');
-console.log('part2');
+console.log('part2', countPart2);
