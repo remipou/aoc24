@@ -9,3 +9,5 @@ fi
 
 touch data/$1dec.txt
 touch samples/$1dec.txt
+
+code .
