@@ -46,5 +46,37 @@ console.log('part1', result1);
 console.timeEnd('part 1');
 
 console.time('part 2');
+
+const incorrectUpdates: Update[] = [];
+for (let i = 0; i < updates.length; i++) {
+  const rulesApplying = rulesContaining(updates[i]);
+  if (!testRules(rulesApplying, updates[i])) {
+    incorrectUpdates.push(updates[i]);
+  }
+}
+// 61,29,13
+// const bubble = (update: Update, r: Rule[]): Update => {
+//   let swap: boolean;
+//   let value: number;
+//   for (let i = 0; i < update.length - 1; i++) {
+//     swap = false;
+//     for (let j = 0; j < update.length - i - 1; j++) {
+//       console.log(i, j, update);
+//       if (!testRules(r, update)) {
+//         value = update[j];
+//         update[j] = update[j + 1];
+//         console.log('swap', value, update[j + 1]);
+//         update[j + 1] = value;
+//         swap = true;
+//       }
+//     }
+//     // if (!swap) {
+//     //   console.log('break');
+//     //   break;
+//     // }
+//   }
+//   return update;
+// };
+
 console.timeEnd('part 2');
 console.log('part2');
